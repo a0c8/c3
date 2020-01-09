@@ -32,11 +32,11 @@ func StartTLSServer() {
 			log.Println(err)
 			continue
 		}
-		go handleConnection(conn)
+		go handleTLSConnection(conn)
 	}
 }
 
-func handleConnection(conn net.Conn) {
+func handleTLSConnection(conn net.Conn) {
 	defer conn.Close()
 	r := bufio.NewReader(conn)
 	for {
